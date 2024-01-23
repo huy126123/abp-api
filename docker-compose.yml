@@ -6,11 +6,11 @@ services:
       context: .
       dockerfile: src/BookStore.HttpApi.Host/Dockerfile
     ports:
-      - "81:80"
+      - "83:80"
     volumes:
-      - /var/www/BookStore/data/:/app/wwwroot
-      - /var/www/BookStore/api/Logs/:/app/Logs
-      - /var/www/BookStore/api/appsettings.json:/app/appsettings.json
+      - /var/www/abp-huy/abp-api/data/:/app/wwwroot
+      - /var/www/abp-huy/abp-api/Logs/:/app/Logs
+      - /var/www/abp-huy/abp-api/src/BookStore.HttpApi.Host/appsettings.json:/app/appsettings.json
     restart: unless-stopped
     environment:
       - TZ=Asia/Ho_Chi_Minh
