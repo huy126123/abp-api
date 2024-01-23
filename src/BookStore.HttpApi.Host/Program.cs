@@ -30,7 +30,7 @@ public class Program
         {
             Log.Information("Starting BookStore.HttpApi.Host.");
             var builder = WebApplication.CreateBuilder(args);
-            builder.WebHost.UseUrls("http://*:44387");
+            builder.WebHost.UseUrls("http://*:1610");
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog(); 
