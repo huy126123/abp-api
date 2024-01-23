@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  api_bookstore:
+    build:
+      context: .
+      dockerfile: src/BookStore.HttpApi.Host/Dockerfile
+    ports:
+      - "81:80"
+    volumes:
+      - /var/www/BookStore/data/:/app/wwwroot
+      - /var/www/BookStore/api/Logs/:/app/Logs
+      - /var/www/BookStore/api/appsettings.json:/app/appsettings.json
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
