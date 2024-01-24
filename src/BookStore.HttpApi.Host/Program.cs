@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,10 +31,9 @@ public class Program
         {
             Log.Information("Starting BookStore.HttpApi.Host.");
             var builder = WebApplication.CreateBuilder(args);
-            
             builder.Host.AddAppSettingsSecretsJson()
                 .UseAutofac()
-                .UseSerilog(); 
+                .UseSerilog();
             await builder.AddApplicationAsync<BookStoreHttpApiHostModule>();
             var app = builder.Build();
             await app.InitializeApplicationAsync();
@@ -42,11 +42,6 @@ public class Program
         }
         catch (Exception ex)
         {
-            if (ex is HostAbortedException)
-            {
-                throw;
-            }
-
             Log.Fatal(ex, "Host terminated unexpectedly!");
             return 1;
         }
@@ -54,5 +49,9 @@ public class Program
         {
             Log.CloseAndFlush();
         }
+
     }
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+    .UseUrls("http://*:1610;http://localhost:1610;https://hostname:1610");
 }
