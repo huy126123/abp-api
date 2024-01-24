@@ -1,16 +1,8 @@
 version: '3.4'
 
 services:
-  api_bookstore:
+  bookstore.httpapi.host:
+    image: abp-api-huy
     build:
       context: .
       dockerfile: src/BookStore.HttpApi.Host/Dockerfile
-    ports:
-      - "83:80"
-    volumes:
-      - /var/www/abp-huy/abp-api/data/:/app/wwwroot
-      - /var/www/abp-huy/abp-api/Logs/:/app/Logs
-      - /var/www/abp-huy/abp-api/src/BookStore.HttpApi.Host/appsettings.json:/app/appsettings.json
-    restart: unless-stopped
-    environment:
-      - TZ=Asia/Ho_Chi_Minh
