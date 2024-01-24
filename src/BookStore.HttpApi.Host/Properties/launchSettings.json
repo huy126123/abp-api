@@ -13,7 +13,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:1610"
+      "applicationUrl": "http://localhost:1610"
     },
     "Docker": {
       "commandName": "Docker",
@@ -31,7 +31,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:1610",
+      "applicationUrl": "http://localhost:1610",
       "sslPort": 1610
     }
   }
